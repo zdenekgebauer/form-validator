@@ -1,0 +1,31 @@
+.results {
+	background-position: 10px 50%;
+	background-repeat: no-repeat;
+    color: #423c56;
+    font-family: Arial;
+    font-size: 12px;
+    line-height: 18px;
+    margin: 16px 0 8px;
+    padding: 12px 35px;
+    text-align: left;
+}
+.results.valid {
+    background-color: #e9fada;
+    background-image: url(tick.png);
+    border: 1px solid #bedd97;
+}
+.results.invalid {
+    background-color: #fdecec;
+    background-image: url(cross.png);
+    border: 1px solid #ffabab;
+}
+
+
+[data-validation-info] {
+    background: rgba(0, 0, 0, 0) no-repeat scroll center center;
+    display: inline-block;
+    height: 18px;
+    width: 18px;
+}
+[data-validation-info].valid { background-image: url(ico_ok.gif); }
+[data-validation-info].invalid { background-image: url(ico_nok.gif); }

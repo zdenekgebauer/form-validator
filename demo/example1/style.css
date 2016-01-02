@@ -1,0 +1,25 @@
+
+
+/*
+:required {
+	border: 1px solid blue;
+} */
+
+:valid {
+	border: 1px solid green;
+}
+:invalid {
+	border: 1px solid red;
+}
+
+:valid  .results {
+	color:green;
+	border: 1px solid green;
+}
+
+:invalid .results {
+	color:red;
+	border: 1px solid red;
+}
+
+
