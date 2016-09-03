@@ -1,9 +1,9 @@
 'use strict';
 
-document.addEventListener('DOMContentLoaded', function(event) {
+document.addEventListener('DOMContentLoaded', function() {
 
 	var form = document.querySelector('form'),
-		validator = new FormValidator(form, true),
+		validator = new FormValidator(form, true), // eslint-disable-line no-undef
 		results = form.querySelector('.results');
 
 	// block submit in demo
@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
 		}
 	});
 
-
 	// display input validation status
 	form.addEventListener(validator.EVENT_VALIDATION, function(event) {
 		var input = event.target ? event.target : event.srcElement,
@@ -43,7 +42,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
 				span.classList.add('invalid');
 				span.title = input.validationMessage;
 			}
-
 		}
 	});
 

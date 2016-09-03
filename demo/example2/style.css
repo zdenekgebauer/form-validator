@@ -1,19 +1,22 @@
 .results {
-	background-position: 10px 50%;
-	background-repeat: no-repeat;
+    background: no-repeat 10px 50%;
     color: #423c56;
-    font-family: Arial;
+    font-family: Arial, sans-serif;
     font-size: 12px;
     line-height: 18px;
     margin: 16px 0 8px;
     padding: 12px 35px;
     text-align: left;
 }
+
+/*noinspection CssUnusedSymbol*/
 .results.valid {
     background-color: #e9fada;
     background-image: url(tick.png);
     border: 1px solid #bedd97;
 }
+
+/*noinspection CssUnusedSymbol*/
 .results.invalid {
     background-color: #fdecec;
     background-image: url(cross.png);
@@ -27,5 +30,9 @@
     height: 18px;
     width: 18px;
 }
+
+/*noinspection CssUnusedSymbol*/
 [data-validation-info].valid { background-image: url(ico_ok.gif); }
+
+/*noinspection CssUnusedSymbol*/
 [data-validation-info].invalid { background-image: url(ico_nok.gif); }

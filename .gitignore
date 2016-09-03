@@ -1,2 +1,5 @@
-# netbeans project dir
-nbproject/
+# IDE project dir
+.idea/
+
+# local build settings
+build/reports/

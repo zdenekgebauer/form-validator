@@ -13,38 +13,38 @@
 <![endif]-->
 <form>
 <div class="results"></div>
-<p><label for="fName">Name:</label> <input type="text" name="name" required id="fName" title="Fill valid name" /> <span data-validation-info="name"></span></p>
+<p><label for="fName">Name (required, with customized message):</label> <input type="text" name="name" required id="fName" title="Custom message: Fill valid name" /> <span data-validation-info="name"></span></p>
 
-<p><label for="fEmail">E-mail:</label> <input type="email" name="email" required id="fEmail" data-validation-rule="email" title="Fill valid e-mail" /> <span data-validation-info="email"></span></p>
+<p><label for="fEmail">E-mail (required, with predefined validation rule):</label> <input type="email" name="email" required id="fEmail" data-validation-rule="email" title="Fill valid e-mail" /> <span data-validation-info="email"></span></p>
 
-<p><label for="fPhone">Phone:</label> <input type="tel" name="phone" id="fPhone" data-validation-rule="phone" title="Fill valid phone nuimber" /> <span data-validation-info="phone"></span></p>
+<p><label for="fPhone">Phone (optional, with predefined validation rule):</label> <input type="tel" name="phone" id="fPhone" data-validation-rule="phone" title="Fill valid phone number" /> <span data-validation-info="phone"></span></p>
 
-<p><label for="fText">Text:</label> <textarea name="text" required id="fText" maxlength="10" minlength="2" title="Fill some text"></textarea> <span data-validation-info="text"></span></p>
+<p><label for="fText">Text (required):</label> <textarea name="text" required id="fText" maxlength="10" minlength="2" title="Fill some text"></textarea> <span data-validation-info="text"></span></p>
+<p><button id="validateTextarea">validate textarea now</button></p>
 
 <p><label for="fCheckbox">I agree:</label> <input type="checkbox" name="check" id="fCheckbox" required title="You must agree" /><span data-validation-info="check"></span></p>
 
 <p><label>Option:</label> <label><input type="radio" name="option" id="fOptionA" required /> option A</label>
 	<label><input type="radio" name="option" id="fOptionB" required title="Choose option" /> option B</label>
 	<span data-validation-info="option"></span></p>
-<p><label for="fRange">Range: (10 ... 30)</label> <input type="range" name="range" id="fRange" min="10" max="30" step="1" /> <span data-validation-info="range"></span></p>
-<p><label for="fNumber">Number: (-1 ... +1)</label> <input type="number" name="range" id="fNumber" min="-1" max="1" step="0.1" /> <span data-validation-info="number"></span></p>
+<p><label for="fRange">Range: (required value between 10 and 30)</label> <input type="range" name="range" id="fRange" min="10" max="30" step="1" /> <span data-validation-info="range"></span></p>
+<p><label for="fNumber">Number: (required value between -1 and +1)</label> <input type="number" name="number" id="fNumber" min="-1" max="1" step="0.1" /> <span data-validation-info="number"></span></p>
 
 <p><label for="fReqCheck">Company:</label>
 	<input type="checkbox" id="fReqCheck" /></p>
-<p><label for="fReqName">Conditionaly required:</label>
-	<input type="text" id="fReqName" name="cond_value" /> <span data-validation-info="cond_value"></span></p>
+<p><label for="fReqName">Required if company is checked:</label>
+	<input type="text" id="fReqName" name="cond_value" data-required-cond /> <span data-validation-info="cond_value"></span></p>
 
 <fieldset>
 	<legend>disabled elements are ignored</legend>
-	<p><label>disabled</label> <input type="text" name="disabled_text" required disabled /></p>
-	<p><label>readonly</label> <input type="text" name="readonly_text" required readonly /></p>
+	<p><label for="fDisabledInput">disabled</label> <input type="text" name="disabled_text" id="fDisabledInput" required disabled /></p>
+	<p><label for="fReadOnlyInput">readonly</label> <input type="text" name="readonly_text" id="fReadOnlyInput" required readonly /></p>
 </fieldset>
 <fieldset>
-	<legend>dynamically added elements</legend>
+	<legend>dynamically added required elements</legend>
 	<div id="newTextHolder"></div>
 	<p><button type="button" id="addText">add</button></p>
 </fieldset>
-
 
 <p><label for="fFile">File:</label>
 	<input type="file" name="file" id="fFile" accept="image/jpeg" title="allowed max 1KB" data-validation-max-filesize="1024" /> <span data-validation-info="file"></span></p>
@@ -55,10 +55,13 @@
 
 <p><label for="fDate">Date:</label> <input type="date" name="date" id="fDate" required /> <span data-validation-info="date"></span></p>
 
+<p><label for="fCountry">Country</label> <select id="fCountry"><option value="cs">Czech: ZIP code [1-9]{5}</option> <option value="hu">Hungary: ZIP code [1-9]{4}</option></select>
+	<label for="fZip">ZIP</label> <input type="text" id="fZip" /></p>
+
 <p><input type="hidden" name="hidden" /> <input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
 </form>
 
-<script src="../../form_validator.js"></script>
+<script src="../../src/form_validator.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

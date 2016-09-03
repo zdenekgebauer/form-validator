@@ -1,0 +1,45 @@
+env:
+  browser: true
+extends: 'eslint:recommended'
+rules:
+  indent:
+    - error
+    - tab
+  linebreak-style:
+    - error
+    - unix
+  quotes:
+    - warn
+    - single
+  semi:
+    - error
+    - always
+  complexity:
+    - error
+    - 6
+  no-multi-spaces:
+    - warn
+  eqeqeq:
+    - warn
+  curly:
+    - warn
+  no-else-return:
+    - warn
+  strict:
+    - warn
+    - global
+  max-len:
+    - error
+    - code: 120
+  max-depth:
+    - error
+    - max: 4
+  no-multiple-empty-lines:
+    - warn
+    - max: 2
+  no-trailing-spaces:
+    - warn
+  key-spacing:
+    - warn
+    - beforeColon: false
+      afterColon: true

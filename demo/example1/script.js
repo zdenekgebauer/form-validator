@@ -1,17 +1,16 @@
 'use strict';
 
-document.addEventListener('DOMContentLoaded', function(event) {
+document.addEventListener('DOMContentLoaded', function() {
 
 	var form = document.querySelector('form'),
-		validator = new FormValidator(form, true),
+		validator = new FormValidator(form, true), // eslint-disable-line no-undef
 		results = form.querySelector('.results'),
 		textarea = form.querySelector('textarea'),
 		buttonValidate = document.getElementById('validateTextarea'),
 		selCountry = form.querySelector('#fCountry'),
 		inputZip = form.querySelector('#fZip'),
-		buttonAddText = document.getElementById('addText');
-
-	var checkCompany = form.querySelector('input[id="fCompany"]');
+		buttonAddText = document.getElementById('addText'),
+		checkCond = form.querySelector('input[id="fReqCheck"]');
 
 	// block submit in demo
 	form.addEventListener('submit', function(event) {
@@ -46,36 +45,39 @@ document.addEventListener('DOMContentLoaded', function(event) {
 	});
 
 	// set required fields dynamically
-	checkCompany.addEventListener('change', function() {
-		var inputs = form.querySelectorAll('input[data-required-company]');
+	checkCond.addEventListener('change', function() {
+		var inputs = form.querySelectorAll('input[data-required-cond]');
 		Array.prototype.forEach.call (inputs, function (node) {
-			node.required = checkCompany.checked;
+			node.required = checkCond.checked;
 		});
 	});
 
-	// set pattern dyanmically
+	// set pattern dynamically
 	selCountry.addEventListener('change', function() {
-		switch(selCountry.value) {
-			case 'cs':
-				inputZip.required = true;
-				inputZip.pattern = "[1-9]{5}";
-				break;
-			case 'hu':
-				inputZip.required = true;
-				inputZip.pattern = "[1-9]{4}";
-				break;
-			default:
-				inputZip.required = false;
-				inputZip.removeAttribute('pattern');
+		switch(this.value) {
+		case 'cs':
+			inputZip.required = true;
+			inputZip.pattern = '[1-9]{5}';
+			break;
+		case 'hu':
+			inputZip.required = true;
+			inputZip.pattern = '[1-9]{4}';
+			break;
+		default:
+			inputZip.required = false;
+			inputZip.removeAttribute('pattern');
 		}
 		validator.validateInput(inputZip);
 
 	}, false);
 
 	// validate inserted fields
+	var counterInput = 1;
 	buttonAddText.addEventListener('mousedown', function() {
-		document.getElementById('newTextHolder').innerHTML = '<label for="fNewText">New text:</label> <input type="text" name="new_text" id="fNewText" required /> <span data-validation-info="new_text"></span>';
+		document.getElementById('newTextHolder').innerHTML += '<p><input type="text" name="new_text' + counterInput
+			+ '" required /> <span data-validation-info="new_text' + counterInput+ '"></span>';
 		validator.setOnChangeValidation();
+		counterInput++;
 	});
 
 });

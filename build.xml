@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="FormValidator" default="build">
+
+	<property name="dir.report" value="${project.basedir}/build/reports"/>
+
+	<property name="exec.eslint" value="eslint"/>
+
+	<target name="build" depends="eslint"/>
+
+	<target name="eslint" description="eslint - check syntax">
+		<mkdir dir="${dir.report}" />
+		<exec executable="${exec.eslint}" logoutput="true" passthru="false">
+			<arg value="-c"/>
+			<arg path="build/.eslintrc.yml"/>
+			<arg value="-o"/>
+			<arg path="${dir.report}/eslint.html"/>
+			<arg value="-f"/>
+			<arg value="html"/>
+			<arg value="**/*.js"/>
+		</exec>
+	</target>
+
+</project>
